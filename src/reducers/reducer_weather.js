@@ -1,12 +1,27 @@
-import { FETCH_WEATHER } from '../actions/index';
+import { FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR } from '../actions/index';
 
-export default function (state = [], action) {
-    switch (action.type) {
-        case FETCH_WEATHER:
-        if(action.error === true){
-            return state;
-        }
-        return [action.payload.data, ...state];
-    }
-    return state;
+const initState = { data: [], error: null}
+
+export default function(state = initState , action) {
+
+  if (action.error) {
+    action.type = FETCH_WEATHER_ERROR;
+  }
+
+  switch (action.type) {
+
+    case FETCH_WEATHER_SUCCESS:
+      return {...state, 
+        data: [ action.payload.data, ...state.data ],
+        error: null
+      };
+    
+    case FETCH_WEATHER_ERROR:
+      return {...state, 
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
 }

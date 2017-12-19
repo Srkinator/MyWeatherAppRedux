@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Chart from '../components/chart';
-import GoogleMap from '../components/google_map';
+import City from '../components/city';
 
 class WeatherList extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-    
-    renderWeather(cityData) {
+    renderWeather = (cityData) => {
+
         const name = cityData.city.name;
         const temperature = cityData.list.map(elem => elem.main.temp - 273);
         const pressure = cityData.list.map(elem => elem.main.pressure);
         const humidity = cityData.list.map(elem => elem.main.humidity);
         const { lon, lat } = cityData.city.coord;
 
-        return (
-            <tr key={cityData.city.id}>
-                <td><GoogleMap lon={lon} lat={lat}/></td>
-                <td>
-                   <Chart data={temperature} color="red" units="C"/>
-                </td>
-                <td> 
-                <Chart data={pressure} color="blue" units="Hpa"/>
-
-                </td>
-                <td> 
-                <Chart data={humidity} color="orange" units="%"/>
-
-                </td>
-            </tr>
-        )
+        const data = { name, temperature, pressure, humidity, lat, lon }
+        
+        return <City {...data} key={name}/>
     }
+
     render() {
-        console.log(this.props.weather);
         return (
-            <table className="table table-hover">
+            <table className='table table-hover'>
                 <thead>
                     <tr>
                         <th>City</th>
@@ -43,18 +32,15 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.weather.map(this.renderWeather)}
+                    {this.props.weather.data.map(this.renderWeather)}
                 </tbody>
             </table>
         );
     }
 }
 
-
-function mapStateToProps(state) {
-    return {
-        weather: state.weather
-    }
+function mapStateToProps({ weather }) {
+    return { weather }
 }
 
-export default connect(mapStateToProps, null)(WeatherList)
+export default connect(mapStateToProps, null)(WeatherList);

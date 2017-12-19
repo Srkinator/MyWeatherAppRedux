@@ -1,2 +1,2 @@
-export const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=3261c02502a1cc9e94019ae180972349`;
-export const HEADER_KEY = "19a37d4fbfe54641486ab1a0847b62e7";
+export const WEATHER_API_KEY = 'f9db06c47327c53bd23f61c91bdab248';
+export const BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast';
