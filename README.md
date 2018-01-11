@@ -19,3 +19,8 @@ DEMO : [MyWeatherApp](https://srkinator.github.io/MyWeatherAppRedux/)
     Framework:  React + Redux
     Module Loader:  Webpack
     Package Manager:  Yarn
+
+# Screenshots 
+
+![weather](https://user-images.githubusercontent.com/32547795/34840912-cc34676a-f706-11e7-9911-f1e5be3b94ca.png)
+
