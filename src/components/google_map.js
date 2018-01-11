@@ -16,7 +16,7 @@ class GoogleMap extends Component {
   }
 
   render() {
-    return <div style={{width:"200px", height:"200px", position:""}} ref='map' />;
+    return <div style={{width:"100%", height:"200px", position:""}} ref='map' />;
   }
 }
 

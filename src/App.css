@@ -26,3 +26,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.cityinfo {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.searchBar {
+  width: 100%;
+  margin-top: 70px;
+}
+
+h2 {
+  text-align: center;
+  color: orange;
+}
+
+
+/* body{
+  background-image: url("http://www.soelden.com/urlaub/images/SD/SO/ort_unterkunft_betriebe/background_wetter,method=render,prop=data.jpg");
+  color: orange;
+} */
+
+

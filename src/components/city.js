@@ -18,18 +18,24 @@ class City extends Component {
         const { name, lon, lat, temperature, pressure, humidity } = this.props;
 
         return (
-            <tr className={['fade-in', this.state.isVisible && 'show'].join(' ')}>
-                <td><GoogleMap lon={lon} lat={lat}/></td>
-                <td>
+            <div className = "row cityinfo">
+                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                <h5>{name}</h5>
+                <GoogleMap lon={lon} lat={lat}/>
+                </div>
+                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                <h5>Temperature</h5>
                     <Chart data={temperature} color='orange' units='C' />
-                </td>
-                <td>
+                </div>
+                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                <h5>Pressure</h5>
                     <Chart data={pressure} color='green' units='hPa' />
-                </td>
-                <td>
+                </div>
+                <div className="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                <h5>Humidity</h5>
                     <Chart data={humidity} color='blue' units='%' />
-                </td>
-            </tr>
+                </div>
+            </div>
         );
     }
 };

@@ -23,17 +23,15 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div>
-                <form className='input-group' onSubmit={this.onFormSubmit}>
+            <div className= "searchBar">
+            <h2>Welcome to Srki's 5-days weather forecast</h2>
+                <form className= "searchBar" onSubmit={this.onFormSubmit}>
                     <input
-                        placeholder='Get a five-day forecast of your favorite cities'
-                        className='form-control'
+                        style={{width:"80%", margin:"0 50px"}}
+                        placeholder='Please enter desired city and press enter'
                         value={this.state.term}
                         onChange={this.onInputChange}
                     />
-                    <span className='input-group-btn'>
-                        <button type='submit' className='btn btn-secondary'>Submit</button>
-                    </span>
                 </form>
                 {this.props.error ? <p className='error-ui'>Oops! Server Response: <span className='text-danger text-uppercase'> {this.props.error.response.data.message} </span></p> : ''}
             </div>
